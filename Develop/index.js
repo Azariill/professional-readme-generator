@@ -7,9 +7,9 @@ const generateMarkdown = require('./utils/generateMarkdown');
  const questions = [];
 
 // TODO: Create a function to write README file
-const writeFile = (fileName,markDown) =>{
+const writeFile = (markDown) =>{
     return new Promise((resolve,reject) =>{
-        fs.writeFile(`./dist/${fileName}.md`,markDown,err=>{
+        fs.writeFile(`./dist/README.md`,markDown,err=>{
             if(err){
                 reject(err);
                 return;
@@ -98,6 +98,10 @@ const installationPrompt = readMeData =>{
 // Function call to initialize app
 init()
 .then(installationPrompt)
+.then(readMeData =>{
+    console.log(readMeData);
+    return generateMarkdown(readMeData);
+})
 .then(markDown => {
     return writeFile(markDown);
 })
