@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = ('./utils/generateMarkdown.js');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [];
@@ -14,7 +14,7 @@ const init = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'project-title',
+            name: 'title',
             message: 'What is the title of your project?',
             validate: projectTitle =>{
                 if(projectTitle){
@@ -27,10 +27,61 @@ const init = () => {
             }
         },
         {
-            
-        }
+            type: 'input',
+            name: 'description',
+            message: 'Please write a short description about your project.(eg. Motivation, Why, What does it solve, what did you learn)',
+            validate: shortDescription =>{
+                if(shortDescription){
+                    return true;
+                }
+                else{
+                    console.log('Please enter a short description about your project.');
+                    return false;
+                }
+            }
+        },
+     
+        {
+            type: 'input',
+            name: 'installation',
+            message: 'Please write a short description about your project.(eg. Motivation, Why, What does it solve, what did you learn)',
+            validate: shortDescription =>{
+                if(shortDescription){
+                    return true;
+                }
+                else{
+                    console.log('Please enter a short description about your project.');
+                    return false;
+                }
+            }
+        },
+
+ 
     ])
 }
 
+const writeFile = markDown =>{
+    return new Promise((resolve,reject) =>{
+        fs.writeFile('./dist/README.md',markDown,err=>{
+            if(err){
+                reject(err);
+                return;
+            }
+            resolve({
+                ok:true,
+                message: 'File created!'
+            });
+
+        });
+    });
+
+};
+
 // Function call to initialize app
-init();
+init()
+.then(data =>{
+    return generateMarkdown(data)}
+)
+.then(markDown => {
+    return writeFile(markDown);
+})
