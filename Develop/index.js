@@ -3,11 +3,26 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
-const questions = [];
+// // TODO: Create an array of questions for user input
+ const questions = [];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const writeFile = (fileName,markDown) =>{
+    return new Promise((resolve,reject) =>{
+        fs.writeFile(`./dist/${fileName}.md`,markDown,err=>{
+            if(err){
+                reject(err);
+                return;
+            }
+            resolve({
+                ok:true,
+                message: 'File created!'
+            });
+
+        });
+    });
+
+};
 
 // TODO: Create a function to initialize app
 const init = () => {
@@ -39,49 +54,50 @@ const init = () => {
                     return false;
                 }
             }
-        },
-     
+        }, 
+    ])
+}
+
+const installationPrompt = readMeData =>{
+    // if there is no installationSteps array create one
+    if(!readMeData.installation){
+        readMeData.installation = [];
+    }
+    return inquirer.prompt([
         {
-            type: 'input',
-            name: 'installation',
-            message: 'Please write a short description about your project.(eg. Motivation, Why, What does it solve, what did you learn)',
-            validate: shortDescription =>{
-                if(shortDescription){
+            type:'input',
+            name: 'installationStep',
+            message: 'Please enter a step for installing your project',
+            validate: installationStep =>{
+                if(installationStep){
                     return true;
                 }
                 else{
-                    console.log('Please enter a short description about your project.');
+                    console.log('Please enter a step for installing your project');
                     return false;
                 }
             }
         },
-
- 
+        {
+            type: 'confirm',
+            name: 'confirmAddStep',
+            message: 'Would you like to add another step?',
+            default: false
+        }
     ])
-}
-
-const writeFile = markDown =>{
-    return new Promise((resolve,reject) =>{
-        fs.writeFile('./dist/README.md',markDown,err=>{
-            if(err){
-                reject(err);
-                return;
-            }
-            resolve({
-                ok:true,
-                message: 'File created!'
-            });
-
+    .then(installationData =>{
+        readMeData.installation.push(installationData);
+        if(installationData.confirmAddStep){
+            return installationPrompt(readMeData);
+        }
+        else{ return readMeData}
         });
-    });
+    };
 
-};
 
 // Function call to initialize app
 init()
-.then(data =>{
-    return generateMarkdown(data)}
-)
+.then(installationPrompt)
 .then(markDown => {
     return writeFile(markDown);
 })
