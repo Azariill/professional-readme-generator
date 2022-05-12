@@ -1,7 +1,7 @@
-# Test
+# Test-Project
 
   ## Description
-  This is a test
+  this is a test project
   ## Table of Contents
     - [Installation](#installation)
     - [Usage](#usage)
