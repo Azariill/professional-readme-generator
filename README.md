@@ -28,6 +28,6 @@
   ## Tests
   Pull repo, see installation section for installation instructions. Then run node index.js from develop folder in terminal.
   ## Questions
-  Have any addition questions for me? I have been found at the links down below<br>
-  -GitHub Username:Azariill | Profile link: https://github.com/Azariill<br>
-  -Email: heierms@gmail.com
+  ### Have any addition questions for me? I have been found at the links down below :<br>
+  - GitHub Username : Azariill | Profile link: https://github.com/Azariill<br>
+  - Email : heierms@gmail.com

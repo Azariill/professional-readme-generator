@@ -124,9 +124,9 @@ ${generateInstallation(installation)}
   ## Tests
   ${testInstruction}
   ## Questions
-  Have any addition questions for me? I have been found at the links down below<br>
-  -GitHub Username:${name} | Profile link: https://github.com/${name}<br>
-  -Email: ${email}
+  ### Have any addition questions for me? I have been found at the links down below<br>
+  - GitHub Username : ${name} | | Profile link: https://github.com/${name}<br>
+  - Email : ${email}
 `;
 }
 
