@@ -10,21 +10,40 @@ function renderLicenseLink(license) {}
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
+const generateInstallation = installation =>{
+  console.log(installation)
+  return`
+     ${installation
+        .map(({installationStep}) => `* ${installationStep}\n\t\t\t`)
+        .join('')}
+  `
+}
+
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = (readMeData) => {
-  const {title, description, installation} = readMeData;
+  
+  const {title, description, installation, usage} = readMeData;
+  
   return `# ${title}
 
   ## Description
-  ${description}
+    -${description}
+
   ## Table of Contents
+
     - [Installation](#installation)
     - [Usage](#usage)
     - [Credits](#credits)
     - [License](#license)
-  ## Installation
-  ${installation}
 
+  ## Installation
+    ${generateInstallation(installation)}
+
+  ## Usage
+    ${usage}
+
+  ## Credits 
+    ${generateCredit(credit)}
 `;
 }
 

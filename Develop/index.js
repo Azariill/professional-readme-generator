@@ -51,7 +51,22 @@ const init = () => {
                     return false;
                 }
             }
-        }, 
+        },
+        { 
+            type: 'input',
+            name: 'usage',
+            message: 'Please provide some examples for use.',
+            validate: provideExample =>{
+                if(provideExample){
+                    return true;
+                }
+                else{
+                    console.log('Please provide some examples for use.');
+                    return false;
+                }
+            }
+        },
+
     ])
 }
 
@@ -90,11 +105,47 @@ const installationPrompt = readMeData =>{
         else{ return readMeData}
         });
     };
+    const creditsPrompt = readMeData =>{
+        // if there is no installationSteps array create one
+        if(!readMeData.credits){
+            readMeData.credits = [];
+        }
+        return inquirer.prompt([
+            {
+                type:'input',
+                name: 'credit',
+                message: 'List your collaborators with githublinks, third-party asses and tutorial links.',
+                validate: credit =>{
+                    if(credit){
+                        return true;
+                    }
+                    else{
+                        console.log('List your collaborators with githublinks, third-party asses and tutorial links.');
+                        return false;
+                    }
+                }
+            },
+            {
+                type: 'confirm',
+                name: 'confirmMoreCredits',
+                message: 'Would you like to add more?',
+                default: false
+            }
+        ])
+        .then(creditsData =>{
+            readMeData.credits.push(creditsData);
+            if(installationData.confirmMoreCredits){
+                return creditsPrompt(readMeData);
+            }
+            else{ return readMeData}
+            });
+        };
 
 
 // Function call to initialize app
 init()
 .then(installationPrompt)
+.then(creditsPrompt)
 .then(readMeData =>{
     console.log(readMeData);
     return generateMarkdown(readMeData);

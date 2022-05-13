@@ -1,12 +1,16 @@
-# Test-Project
+# portfolio generator
 
   ## Description
-  this is a test project
+  it generates portfolios
   ## Table of Contents
     - [Installation](#installation)
     - [Usage](#usage)
     - [Credits](#credits)
     - [License](#license)
   ## Installation
-  [object Object],[object Object],[object Object]
+  
+     * npm init 
+		* npm install
+  ## 
+  
 
