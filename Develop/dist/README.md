@@ -1,7 +1,7 @@
-# test [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+# example-project [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 
   ## Description
-  test 
+  This is an example of a project readme 
 
   ## Table of Contents
   [Installation](#installation)<br>
@@ -13,11 +13,11 @@
 
   ## Installation
   
-     * one<br>* two<br>
+     * example one<br>* example two<br>* example three<br>
   
 
   ## Usage
-  test
+  this is just an example
   
   
    ## License
@@ -25,10 +25,10 @@
    
    
   ## Contributing
-  test
+  This is an example project
   ## Tests
-  tes
+  example
   ## Questions
   ### Have any addition questions for me? I have been found at the links down below<br>
-  - GitHub Username : azairll | | Profile link: https://github.com/azairll<br>
-  - Email : one
+  - GitHub Username : Azariill | | Profile link: https://github.com/Azariill<br>
+  - Email : heierms@gmail.com

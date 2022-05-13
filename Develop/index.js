@@ -3,7 +3,6 @@
 const fs = require('fs');
 // add inquirer
 const inquirer = require('inquirer');
-const { resolve } = require('path');
 //Link generatemarkdown.js to index 
 const generateMarkdown = require('./utils/generateMarkdown');
 
@@ -201,8 +200,11 @@ init()
 })
 // if the markdown data is completed console log the response and return writeFile
 .then(markDown => {
-    console.log(markDown);
+    
     return writeFile(markDown);
+})
+.then(writeFileResponse =>{
+    console.log(writeFileResponse.message);
 })
 // catch any err
 .catch(err => console.log(err));
