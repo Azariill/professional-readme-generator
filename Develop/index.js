@@ -66,6 +66,40 @@ const init = () => {
                 }
             }
         },
+        {
+            type: 'input',
+            name: 'contributions',
+            message: 'What are your guidelines for contributing?',
+            validate: contributions =>{
+                if(contributions){
+                    return true;
+                }
+                else{
+                    console.log('What are your guidelines for contributing?');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'testInstruction',
+            message: 'Please enter test instructions.',
+            validate: test =>{
+                if(test){
+                    return true;
+                }
+                else{
+                    console.log('Please enter test instructions.');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'list',
+            name: 'license',
+            choices: ['MIT','GPLv2', 'Apache','BSD3-clause','BSD 2-clause', 'LGlv3','AGPlv3','none']
+        }
+
 
     ])
 }
@@ -105,51 +139,16 @@ const installationPrompt = readMeData =>{
         else{ return readMeData}
         });
     };
-    const creditsPrompt = readMeData =>{
-        // if there is no installationSteps array create one
-        if(!readMeData.credits){
-            readMeData.credits = [];
-        }
-        return inquirer.prompt([
-            {
-                type:'input',
-                name: 'credit',
-                message: 'List your collaborators with githublinks, third-party asses and tutorial links.',
-                validate: credit =>{
-                    if(credit){
-                        return true;
-                    }
-                    else{
-                        console.log('List your collaborators with githublinks, third-party asses and tutorial links.');
-                        return false;
-                    }
-                }
-            },
-            {
-                type: 'confirm',
-                name: 'confirmMoreCredits',
-                message: 'Would you like to add more?',
-                default: false
-            }
-        ])
-        .then(creditsData =>{
-            readMeData.credits.push(creditsData);
-            if(installationData.confirmMoreCredits){
-                return creditsPrompt(readMeData);
-            }
-            else{ return readMeData}
-            });
-        };
+   
 
 
 // Function call to initialize app
 init()
 .then(installationPrompt)
-.then(creditsPrompt)
 .then(readMeData =>{
     console.log(readMeData);
-    return generateMarkdown(readMeData);
+    //return generateMarkdown(readMeData);
 })
-.then(markDown => {
-    return writeFile(markDown);
-})
+//.then(markDown => {
+    //return writeFile(markDown);
+//})
