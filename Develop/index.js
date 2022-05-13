@@ -103,7 +103,7 @@ const init = () => {
             type: 'input',
             name: 'name',
             message: 'What is your gitHub username?',
-            validate: nameinput =>{
+            validate: nameInput =>{
                 if(nameInput){
                     return true;
                 }
@@ -117,8 +117,8 @@ const init = () => {
             type: 'input',
             name: 'email',
             message: 'What is your email?',
-            validate: nameinput =>{
-                if(nameInput){
+            validate: emailInput=>{
+                if(emailInput){
                     return true;
                 }
                 else{
@@ -126,7 +126,8 @@ const init = () => {
                     return false;
                 }
             }
-        }
+        },
+        
 
 
 

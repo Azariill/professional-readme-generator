@@ -86,7 +86,7 @@ const generateInstallation = installation =>{
   
   return`
      ${installation
-        .map(({installationStep}) => `* ${installationStep}\n\t\t`)
+        .map(({installationStep}) => `\r*${installationStep}<br>`)
         .join('')}
   `
 }
@@ -105,28 +105,28 @@ const generateMarkdown = (readMeData) => {
   ${description} 
 
   ## Table of Contents
-  -[Installation](#installation)
-  -[Usage](#usage)
-  -${renderLicenseLink(license)}
-  -[Contributing](#contributing)
-  -[Tests](#tests)
-  -[Questions](#questions)
+  [Installation](#installation)<br>
+  [Usage](#usage)<br>
+  ${renderLicenseLink(license)}<br>
+  [Contributing](#contributing)<br>
+  [Tests](#tests)<br>
+  [Questions](#questions)<br>
 
   ## Installation
-  ${generateInstallation(installation)}
+${generateInstallation(installation)}
 
   ## Usage
   ${usage}
   
   ${renderLicenseSection(license)}
   ## Contributing
-    ${contributions}
+  ${contributions}
   ## Tests
-    ${testInstruction}
+  ${testInstruction}
   ## Questions
-  Have any addition questions for me? I have been found at the links down below
-  -gitHub userName:${name} Profile link: https://github.com/${name}
-  -Email:${email}
+  Have any addition questions for me? I have been found at the links down below<br>
+  -GitHub Username:${name} | Profile link: https://github.com/${name}<br>
+  -Email: ${email}
 `;
 }
 
