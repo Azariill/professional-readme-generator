@@ -1,4 +1,4 @@
-# professional-readme-generator 
+# Professional-readme-generator 
 
   ## Description
   This allows you to generate a readMe using only node.js and npm packages. 
