@@ -39,7 +39,7 @@ function renderLicenseLink(license) {
   if(license ==='none'){
     return '';
   }
-  else return "[License](## License)";
+  else return "[License](#license)";
 }
                           
 // TODO: Create a function that returns the license section of README
@@ -52,7 +52,7 @@ function renderLicenseSection(license) {
     
     switch(license){
      case 'MIT':
-        licenseSection = `This application is covered under [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
+        licenseSection = "This application is covered under [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
        break;
      case 'GPLv2':
         licenseSection = `This application is covered under [![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`;
@@ -97,23 +97,23 @@ const generateMarkdown = (readMeData) => {
   return `# ${title}
 
   ## Description
-    ${description} ${renderLicenseBadge(license)}
+  ${description} ${renderLicenseBadge(license)}
 
   ## Table of Contents
-
-     [Installation](## Installation)
-     [Usage](## Usage)
-     ${renderLicenseLink(license)}
-     [Contributing](## Contributing)
-     [Tests](## Tests)
-     [Questions](## Questions)
+  -[Installation](#installation)
+  -[Usage](#usage)
+  -${renderLicenseLink(license)}
+  -[Contributing](#contributing)
+  -[Tests](#tests)
+  -[Questions](#questions)
 
   ## Installation
-    ${generateInstallation(installation)}
+  ${generateInstallation(installation)}
 
   ## Usage
-    ${usage}
-    ${renderLicenseSection(license)}
+  ${usage}
+  
+  ${renderLicenseSection(license)}
   ## Contributing
     ${contributions}
   ## Tests
