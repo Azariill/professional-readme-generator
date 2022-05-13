@@ -97,7 +97,7 @@ const init = () => {
         {
             type: 'list',
             name: 'license',
-            choices: ['MIT','GPLv2', 'Apache','BSD3-clause','BSD 2-clause', 'LGlv3','AGPlv3','none']
+            choices: ['MIT','GPLv2', 'Apache','BSD3-clause','BSD 2-clause', 'LGPLv3','AGPLv3','none']
         }
 
 
@@ -147,8 +147,8 @@ init()
 .then(installationPrompt)
 .then(readMeData =>{
     console.log(readMeData);
-    //return generateMarkdown(readMeData);
+    return generateMarkdown(readMeData);
 })
-//.then(markDown => {
-    //return writeFile(markDown);
-//})
+.then(markDown => {
+    return writeFile(markDown);
+})
