@@ -1,9 +1,13 @@
 // TODO: Include packages needed for this application
+// add the file system pacakge
 const fs = require('fs');
+// add inquirer
 const inquirer = require('inquirer');
+const { resolve } = require('path');
+//Link generatemarkdown.js to index 
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create a function to write README file
+// takes the mark down code and writes it to README.md in the dist folder
 const writeFile = (markDown) =>{
     return new Promise((resolve,reject) =>{
         fs.writeFile(`./dist/README.md`,markDown,err=>{
@@ -23,7 +27,10 @@ const writeFile = (markDown) =>{
 
 // TODO: Create a function to initialize app
 const init = () => {
+    // return inquirer prompts
     return inquirer.prompt([
+
+        // prompts user for a title
         {
             type: 'input',
             name: 'title',
@@ -38,6 +45,7 @@ const init = () => {
                 }
             }
         },
+        // prompts user to give a description of their project
         {
             type: 'input',
             name: 'description',
@@ -52,6 +60,7 @@ const init = () => {
                 }
             }
         },
+        // prompts user to provide use examples
         { 
             type: 'input',
             name: 'usage',
@@ -66,6 +75,7 @@ const init = () => {
                 }
             }
         },
+        // prompts user to layout contributing guidelines
         {
             type: 'input',
             name: 'contributions',
@@ -80,6 +90,7 @@ const init = () => {
                 }
             }
         },
+        // prompts user to provide testing instructions
         {
             type: 'input',
             name: 'testInstruction',
@@ -94,11 +105,13 @@ const init = () => {
                 }
             }
         },
+        // prompts user to choose a license for their readme
         {
             type: 'list',
             name: 'license',
             choices: ['MIT','GPLv2', 'Apache','BSD3-clause','BSD 2-clause', 'LGPLv3','AGPLv3','none']
         },
+        // prompts user to provide github info
         {
             type: 'input',
             name: 'name',
@@ -113,6 +126,7 @@ const init = () => {
                 }
             }
         },
+        //prompts user for an email
         {
             type: 'input',
             name: 'email',
@@ -128,18 +142,17 @@ const init = () => {
             }
         },
         
-
-
-
     ])
 }
 
+// takes current readme data and adds installation section info
 const installationPrompt = readMeData =>{
     // if there is no installationSteps array create one
     if(!readMeData.installation){
         readMeData.installation = [];
     }
     return inquirer.prompt([
+        // prompts the user for a step in their installation process
         {
             type:'input',
             name: 'installationStep',
@@ -154,6 +167,7 @@ const installationPrompt = readMeData =>{
                 }
             }
         },
+        // asks the user if they need more steps in process
         {
             type: 'confirm',
             name: 'confirmAddStep',
@@ -161,11 +175,16 @@ const installationPrompt = readMeData =>{
             default: false
         }
     ])
+    // takes installation data
     .then(installationData =>{
+        // puts the installation data array in the readme installation section
         readMeData.installation.push(installationData);
+        // if the user wants to add more steps
         if(installationData.confirmAddStep){
+            // run installationPrompt again
             return installationPrompt(readMeData);
         }
+        // return the readmedata 
         else{ return readMeData}
         });
     };
@@ -174,11 +193,17 @@ const installationPrompt = readMeData =>{
 
 // Function call to initialize app
 init()
+// run the installation prompt function
 .then(installationPrompt)
+// take the readmedata and run the markdown function in generateMarkdown.js
 .then(readMeData =>{
-    console.log(readMeData);
     return generateMarkdown(readMeData);
 })
+// if the markdown data is completed console log the response and return writeFile
 .then(markDown => {
+    console.log(markDown);
     return writeFile(markDown);
 })
+// catch any err
+.catch(err => console.log(err));
+
