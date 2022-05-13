@@ -94,32 +94,32 @@ const generateMarkdown = (readMeData) => {
   const {title, description, installation, usage, contributions, testInstruction, license } = readMeData;
   console.log(license);
   
-  return `/# ${title}
+  return `# ${title}
 
   ## Description
-    -${description} ${renderLicenseBadge(license)}
+    ${description} ${renderLicenseBadge(license)}
 
   ## Table of Contents
 
-    - [Installation](## Installation)
-    - [Usage](## Usage)
-    - ${renderLicenseLink(license)}
-    - [Contributing](## Contributing)
-    - [Tests](## Tests)
-    - [Questions](## Questions)
+     [Installation](## Installation)
+     [Usage](## Usage)
+     ${renderLicenseLink(license)}
+     [Contributing](## Contributing)
+     [Tests](## Tests)
+     [Questions](## Questions)
 
   ## Installation
     ${generateInstallation(installation)}
 
   ## Usage
-    -${usage}
-    -${renderLicenseSection(license)}
+    ${usage}
+    ${renderLicenseSection(license)}
   ## Contributing
-    -${contributions}
+    ${contributions}
   ## Tests
-    -${testInstruction}
+    ${testInstruction}
   ## Questions
-/`;
+`;
 }
 
 module.exports = generateMarkdown;
