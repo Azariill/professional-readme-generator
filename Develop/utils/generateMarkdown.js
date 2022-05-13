@@ -1,7 +1,6 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  console.log(`${console.log(license)} this is render badge section`)
     if(license === 'none'){
       return '';
     }
@@ -95,7 +94,7 @@ const generateMarkdown = (readMeData) => {
   const {title, description, installation, usage, contributions, testInstruction, license } = readMeData;
   console.log(license);
   
-  return `# ${title}
+  return `/# ${title}
 
   ## Description
     -${description} ${renderLicenseBadge(license)}
@@ -120,7 +119,7 @@ const generateMarkdown = (readMeData) => {
   ## Tests
     -${testInstruction}
   ## Questions
-`;
+/`;
 }
 
 module.exports = generateMarkdown;
