@@ -86,7 +86,7 @@ const generateInstallation = installation =>{
   
   return`
      ${installation
-        .map(({installationStep}) => `\r*${installationStep}<br>`)
+        .map(({installationStep}) => `\r* ${installationStep}<br>`)
         .join('')}
   `
 }
@@ -113,7 +113,7 @@ const generateMarkdown = (readMeData) => {
   [Questions](#questions)<br>
 
   ## Installation
-${generateInstallation(installation)}
+  ${generateInstallation(installation)}
 
   ## Usage
   ${usage}

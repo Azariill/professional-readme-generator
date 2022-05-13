@@ -13,21 +13,21 @@
   ## Installation
 
      
-*Download Node.js<br>
-*pull repo and run npm install<br>
-*Open terminal from develop folder<br>
-*Run node index.js to use<br>
+* Download Node.js<br>
+* pull repo and run npm install<br>
+* Open terminal from develop folder<br>
+* Run node index.js to use<br>
   
 
-  ## Usage
+## Usage
   This can be used to generate readMe's for your projects
   
   
-  ## Contributing
+## Contributing
   This project is for a class project not to be contributed to.
-  ## Tests
+## Tests
   Pull repo, see installation section for installation instructions. Then run node index.js from develop folder in terminal.
-  ## Questions
-  ### Have any addition questions for me? I have been found at the links down below :<br>
+## Questions
+### Have any addition questions for me? I have been found at the links down below :<br>
   - GitHub Username : Azariill | Profile link: https://github.com/Azariill<br>
   - Email : heierms@gmail.com
