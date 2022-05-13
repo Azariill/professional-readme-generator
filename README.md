@@ -1,7 +1,7 @@
-# Professional-readme-generator 
+# Professional-ReadME-Generator
 
   ## Description
-  This allows you to generate a readMe using only node.js and npm packages. 
+  This application will generate you a basic README.md file in a professional format using Node.Js and Inquirer npm package. <br>![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 
   ## Table of Contents
   [Installation](#installation)<br>
@@ -10,24 +10,27 @@
   [Tests](#tests)<br>
   [Questions](#questions)<br>
 
-  ## Installation
-
-     
-* Download Node.js<br>
-* pull repo and run npm install<br>
-* Open terminal from develop folder<br>
-* Run node index.js to use<br>
-  
-
+  ## Installation     
+* Make sure you have Node.js installed that can be found here : https://nodejs.org/en/download/ <br>
+* Clone repo and pull files<br>
+* Open terminal from develop folder and run npm install to download dependencies<br>
+* Project should now be ready for use please see Test section for Demo.
 ## Usage
-  This can be used to generate readMe's for your projects
-  
+  The entended use of this application was to generate a professionally formated README using only terminal prompts.
   
 ## Contributing
   This project is for a class project not to be contributed to.
+  
 ## Tests
-  Pull repo, see installation section for installation instructions. Then run node index.js from develop folder in terminal.
+  Once project and been pulled and npm install has been run, run ```node index.js``` see below video for example walkthrough.
+
+https://user-images.githubusercontent.com/99227667/168330253-cdfacafe-09f4-45c2-8322-727492e6809a.mp4
+
+
+  
 ## Questions
-### Have any addition questions for me? I have been found at the links down below :<br>
+### Have any addition questions for me? I have can found at the links down below :<br>
   - GitHub Username : Azariill | Profile link: https://github.com/Azariill<br>
   - Email : heierms@gmail.com
+  - Happy coding!
+ 
