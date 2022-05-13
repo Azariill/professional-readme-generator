@@ -39,7 +39,7 @@ function renderLicenseLink(license) {
   if(license ==='none'){
     return '';
   }
-  else return "[License](#license)";
+  else return "[License](#license)<br>";
 }
                           
 // TODO: Create a function that returns the license section of README
@@ -107,7 +107,7 @@ const generateMarkdown = (readMeData) => {
   ## Table of Contents
   [Installation](#installation)<br>
   [Usage](#usage)<br>
-  ${renderLicenseLink(license)}<br>
+  ${renderLicenseLink(license)}
   [Contributing](#contributing)<br>
   [Tests](#tests)<br>
   [Questions](#questions)<br>

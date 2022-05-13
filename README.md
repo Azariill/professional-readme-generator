@@ -6,14 +6,17 @@
   ## Table of Contents
   [Installation](#installation)<br>
   [Usage](#usage)<br>
-  <br>
   [Contributing](#contributing)<br>
   [Tests](#tests)<br>
   [Questions](#questions)<br>
 
   ## Installation
 
-     *Download Node.js<br>*pull repo and run npm install<br>*Open terminal from develop folder<br>*Run node index.js to use<br>
+     
+*Download Node.js<br>
+*pull repo and run npm install<br>
+*Open terminal from develop folder<br>
+*Run node index.js to use<br>
   
 
   ## Usage
