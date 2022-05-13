@@ -17,6 +17,10 @@
 * Project should now be ready for use please see Test section for Demo.
 ## Usage
   The entended use of this application was to generate a professionally formated README using only terminal prompts.
+  Here is an example: ![screencapture-github-Azariill-professional-readme-generator-tree-main-Develop-dist-2022-05-13-12_04_03](https://user-images.githubusercontent.com/99227667/168333672-faa0b855-af61-4207-b15c-4b0caa74b66e.jpg)
+
+
+  
   
 ## Contributing
   This project is for a class project not to be contributed to.
