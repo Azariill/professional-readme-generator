@@ -98,7 +98,36 @@ const init = () => {
             type: 'list',
             name: 'license',
             choices: ['MIT','GPLv2', 'Apache','BSD3-clause','BSD 2-clause', 'LGPLv3','AGPLv3','none']
+        },
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is your gitHub username?',
+            validate: nameinput =>{
+                if(nameInput){
+                    return true;
+                }
+                else{
+                    console.log('What is your gitHub username?');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is your email?',
+            validate: nameinput =>{
+                if(nameInput){
+                    return true;
+                }
+                else{
+                    console.log('What is your email?');
+                    return false;
+                }
+            }
         }
+
 
 
     ])

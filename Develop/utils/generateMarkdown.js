@@ -52,29 +52,33 @@ function renderLicenseSection(license) {
     
     switch(license){
      case 'MIT':
-        licenseSection = "This application is covered under [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+        licenseSection = `This application is covered under [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
        break;
      case 'GPLv2':
         licenseSection = `This application is covered under [![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`;
        break;
-    //  case 'Apache':
-    //     `This application is covered under [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)  `
-    //    break;
-    //  case 'BSD3-clause':
-    //     `This application is covered under [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)  `
-    //    break;
-    //    case 'BSD 2-clause':
-    //     `This application is covered under [![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)  `
-    //    break;
-    //  case 'LGPLv3':
-    //     `This application is covered under [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0) `
-    //    break;
-    //  case 'AGPLv3':
-    //     `This application is covered under [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) `
-    //    break;
+     case 'Apache':
+        licenseSection =`This application is covered under [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
+       break;
+     case 'BSD3-clause':
+        licenseSection = `This application is covered under [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`;
+       break;
+       case 'BSD 2-clause':
+        licenseSection = `This application is covered under [![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`;
+       break;
+     case 'LGPLv3':
+        licenseSection =`This application is covered under [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0) `;
+        break;
+     case 'AGPLv3':
+        licenseSection= `This application is covered under [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) `;
+       break;
    }
     
-   return licenseSection;
+   return `
+   ## License
+   ${licenseSection}
+   
+   `;
 
 }
 
@@ -91,13 +95,14 @@ const generateInstallation = installation =>{
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = (readMeData) => {
   
-  const {title, description, installation, usage, contributions, testInstruction, license } = readMeData;
+  const {title, description, installation, usage, contributions, testInstruction, license, name, email, } = readMeData;
+  
   console.log(license);
   
-  return `# ${title}
+  return `# ${title} ${renderLicenseBadge(license)}
 
   ## Description
-  ${description} ${renderLicenseBadge(license)}
+  ${description} 
 
   ## Table of Contents
   -[Installation](#installation)
@@ -119,6 +124,9 @@ const generateMarkdown = (readMeData) => {
   ## Tests
     ${testInstruction}
   ## Questions
+  Have any addition questions for me? I have been found at the links down below
+  -gitHub userName:${name} Profile link: https://github.com/${name}
+  -Email:${email}
 `;
 }
 
